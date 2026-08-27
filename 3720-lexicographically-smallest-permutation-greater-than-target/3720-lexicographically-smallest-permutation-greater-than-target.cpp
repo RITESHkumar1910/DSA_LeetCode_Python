@@ -8,11 +8,12 @@ public:
             cnt[c - 'a']++;
         }
 
+        // cntBefore[i] = character counts available before position i
         vector<vector<int>> cntBefore(n, vector<int>(26));
 
         int fail = n;
 
-     
+        // Match target from left to right
         for (int i = 0; i < n; i++) {
             cntBefore[i] = cnt;
 
@@ -44,7 +45,7 @@ public:
                     string ans = target.substr(0, i);
                     ans += char('a' + y);
 
-                   
+                    // Add remaining characters in sorted order
                     for (int c = 0; c < 26; c++) {
                         ans += string(temp[c], char('a' + c));
                     }
